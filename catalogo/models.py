@@ -15,6 +15,7 @@ class Coche(models.Model):
     matricula = models.CharField(max_length=7)
     modelo = models.CharField(max_length=50)
     kilometros = models.IntegerField(validators=[MinValueValidator(500)])
+    color = models.CharField(max_length=50)
     motor = models.CharField(max_length=50) # Ej: Diesel, Gasolina, Electrico,...
     tipo = models.CharField(max_length=50)  # Ej: Turismo, Monovolumen, TodoTerreno,...
     caballos = models.IntegerField(validators=[MinValueValidator(60)])

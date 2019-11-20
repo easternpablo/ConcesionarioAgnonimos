@@ -1,0 +1,48 @@
+/**** PIE DE PÁGINA ****/
+footer {
+    display: block;
+    background-color: #343a40;
+}
+
+footer p {
+    color: white;
+    font: bold;
+    padding: 10px 10px 10px 10px;
+}
+/**** BARRA SOCIAL ****/
+.fa {
+    padding: 10px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+}
+
+.fa:hover {
+    text-decoration: none;
+    background-color: white;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+    margin: 10px;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+    margin: 10px;
+}
+
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
+    margin: 10px;
+}
+
+.fa-instagram {
+    background: #125688;
+    color: white;
+    margin: 10px;
+}

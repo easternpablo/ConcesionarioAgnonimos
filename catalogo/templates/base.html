@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- CSS -->
+        <link rel="stylesheet" href="/static/css/estilos.css">
+        <!-- BOOSTRAP -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <a class="navbar-brand" href="#">
+                <img src="/imagenes/General/servicio-de-venta-de-autos-logo.png" alt="logo" style="width:80px;">
+            </a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 3</a>
+                </li>
+            </ul>
+        </nav>
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <footer>
+            <div class="row">
+                <div class="col-lg-4">
+                    <p>Contacto: Pablo Vilches Mira</p>
+                    <p>Teléfono: 626385324</p>
+                    <p>Email contacto: 
+                        <a href="mailto:easternpablo@gmail.com">easternpablo@gmail.com</a>
+                    </p>
+                </div>
+                <div class="col-lg-4">
+                    <p>Contacto: Verónica Toro Gómez</p>
+                    <p>Teléfono: 123456677</p>
+                    <p>Email contacto: 
+                        <a href="mailto:chirribula@hotmail.es">chirribula@hotmail.es</a>
+                    </p>
+                </div>
+                <div class="col-lg-4">
+                    <p>Contacto: Daniel Millán</p>
+                    <p>Teléfono: 686121314</p>
+                    <p>Email contacto: 
+                        <a href="mailto:damisa98@gmail.com">damisa98@gmail.com</a>
+                    </p>
+                </div>
+            </div>
+            <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+            <a href="https://twitter.com/" class="fa fa-twitter"></a>
+            <a href="https://es.linkedin.com/" class="fa fa-linkedin"></a>
+            <a href="https://www.instagram.com/" class="fa fa-instagram"></a>           
+        </footer>
+    </body>
+</html>

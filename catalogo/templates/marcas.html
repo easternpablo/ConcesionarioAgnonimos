@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Lista de marcas{% endblock %}
+{% block content %}
+{% for marca in marcas %}
+<div class="container-marca">
+        <img src="/{{marca.imagen.url}}" width=300/><br>
+</div>
+{% endfor %}
+{% endblock %}
