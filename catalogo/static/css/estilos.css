@@ -1,3 +1,10 @@
+/**** CUERPO  ****/
+div#content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 /**** PIE DE PÁGINA ****/
 footer {
     display: block;
@@ -10,9 +17,16 @@ footer p {
     padding: 10px 10px 10px 10px;
 }
 /**** BARRA SOCIAL ****/
+div.redes-sociales {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .fa {
     padding: 10px;
-    width: 30px;
+    width: 35px;
     text-align: center;
     text-decoration: none;
     margin: 5px 2px;
@@ -43,6 +57,12 @@ footer p {
 
 .fa-instagram {
     background: #125688;
+    color: white;
+    margin: 10px;
+}
+
+.fa-youtube {
+    background: red;
     color: white;
     margin: 10px;
 }
