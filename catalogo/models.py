@@ -7,6 +7,9 @@ class Marca(models.Model):
 
     def __str__(self):
         return f"{self.nombre}"
+
+    def get_url_catalogo(self):
+        return "/concesionario/catalogo/marcas/"+self.nombre+"/"
 class Coche(models.Model):
     coche_id = models.AutoField(primary_key=True)
     marca_id = models.ForeignKey('Marca', on_delete=models.CASCADE)
