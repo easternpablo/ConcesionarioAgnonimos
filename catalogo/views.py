@@ -9,3 +9,4 @@ def lista_marcas(request):
 def lista_coches(request,marca_id):
     coches = Coche.objects.filter(marca_id__nombre = marca_id)
     return render(request,"coche.html",{"coches":coches})
+
