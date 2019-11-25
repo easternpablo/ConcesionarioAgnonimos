@@ -1,10 +1,10 @@
-<!-- {% extends "base.html" %}
-{% block title %}Catalogo{% endblock %}
+{% extends "base.html" %}
+{% block title %}Lista de coches{% endblock %}
 {% block content %}
-{% for coche in Coche %}
+{% for coche in coches %}
 <p>
-    <img src="/{{Coche.imagen.url}}" width=200> 
-    <a href="/{{Coche.imagen.url}}"> {{ Coche.modelo }}  </a>
+    <img src="/{{coche.imagen.url}}" width=200> 
+    <a href="/{{coche.imagen.url}}"> {{ coche.modelo }}  </a>
 </p>
 {% endfor %}
-{% endblock %} -->
+{% endblock %}

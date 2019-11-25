@@ -2,6 +2,6 @@
 {% block title %}Lista de marcas{% endblock %}
 {% block content %}
 {% for marca in marcas %}
-<img src="/{{marca.imagen.url}}" width=300/><br>
+<a href="{{marca.get_url_catalogo}}"><img src="/{{marca.imagen.url}}" width=300/></a><br>
 {% endfor %}
 {% endblock %}
