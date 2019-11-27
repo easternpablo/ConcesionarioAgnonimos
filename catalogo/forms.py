@@ -29,5 +29,5 @@ class FormRegistroCoches(forms.ModelForm):
         fields = ['marca_id','matricula','modelo','kilometros','color','motor','tipo','caballos','cilindradas','precio','vendido','imagen']
 
 class FormLogin(forms.Form):
-	nombre = forms.CharField(max_length = 20)
-	password = forms.CharField(max_length = 20, widget=forms.PasswordInput)
+    nombre = forms.CharField(max_length = 20)
+    password = forms.CharField(max_length = 20, widget=forms.PasswordInput)

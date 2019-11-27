@@ -56,6 +56,7 @@ def agregar_compra(request):
         form = FormCompraCoche()
         return render(request, "registroCoche.html", {'form':form})
 
+
 def registro_cliente(request):
     if request.user.username:
         return redirect("/concesionario/marcas")   #donde nos va a llevar cuando esté logueado
