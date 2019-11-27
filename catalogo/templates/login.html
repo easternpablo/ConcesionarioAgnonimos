@@ -5,8 +5,10 @@ Login - Concesionario
 {% block content %}
 <h2>Inicio de sesión</h2>
 <form action="." method="POST" class="formulario_login">
-    {{ form.as_p }}
-    {% csrf_token %}
+    <div class="form-group">
+        {{ form.as_p }}
+        {% csrf_token %}
+    </div>    
     <input class="btn btn-primary" type="submit" value="Iniciar Sesión" class="boton_login">
 </form>
 <p>Si eres un cliente registrese <a href="/concesionario/cliente/registro">aquí</a> </p>
