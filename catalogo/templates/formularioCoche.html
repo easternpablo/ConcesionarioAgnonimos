@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block titulo %}Registro coche - Concesionario{% endblock %}
+{% block content %}
+<h2>Registro nuevo coche</h2>
+<form action="." method="POST" enctype="multipart/form-data" class="formulario_registro">
+    <div class="form-group">
+        {{ form.as_p }}
+        {% csrf_token %}
+    </div>    
+    <input type="submit" class="btn btn-success" value="Guardar" class="boton_registro">
+</form>
+{% endblock %}

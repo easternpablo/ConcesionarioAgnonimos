@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 
 class Marca(models.Model):
     nombre = models.CharField(max_length=50, primary_key=True)
-    imagen = models.ImageField(upload_to="imagenes/Marcas/")
-    taller_id = models.ManyToManyField('Taller')
+    imagen = models.ImageField(null=True, upload_to="imagenes/Marcas/")
+    taller_id = models.ForeignKey('Taller',on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return f"{self.nombre}"
@@ -48,7 +48,6 @@ class Cliente(models.Model):
     nombre = models.CharField(max_length=50)
     apellidos = models.CharField(max_length=50)
     telefono = models.CharField(max_length=9)
-    nacimiento = models.DateField()
     direccion = models.CharField(max_length=100) 
     email = models.EmailField(max_length=50) 
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
@@ -62,7 +61,6 @@ class Empleado(models.Model):
     nombre = models.CharField(max_length=50)
     apellidos = models.CharField(max_length=50)                 #son iguales, se puede usar la misma??
     telefono = models.CharField(max_length=9)
-    nacimiento = models.DateField()
     direccion = models.CharField(max_length=100) 
     email = models.EmailField(max_length=50) 
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
@@ -77,9 +75,8 @@ class Proveedor(models.Model):
     nombre = models.CharField(max_length=50)
     apellidos = models.CharField(max_length=50)
     telefono = models.CharField(max_length=9)
-    nacimiento = models.DateField()
     direccion = models.CharField(max_length=100) 
-    email = models.EmailField(max_length=50) 
+    email = models.EmailField(max_length=50)
     
     def __str__(self):
         return f"{self.dni} -> {self.nombre}" 
@@ -89,7 +86,7 @@ class Compra(models.Model):
     coche_id = models.ForeignKey('Coche', on_delete=models.CASCADE)  
     proveedor_id = models.ForeignKey('Proveedor', on_delete=models.CASCADE) 
     empleado_id = models.ForeignKey('Empleado', on_delete=models.CASCADE)
-    fecha = models.DateField()
+    fecha = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.coche_id} -> {self.proveedor_id} -> {self.empleado_id} -> {self.fecha}" 
@@ -99,7 +96,7 @@ class Venta(models.Model):
     coche_id = models.ForeignKey('Coche', on_delete=models.CASCADE)
     cliente_id = models.ForeignKey('Cliente', on_delete=models.CASCADE)
     empleado_id = models.ForeignKey('Empleado', on_delete=models.CASCADE)
-    fecha = models.DateField()
+    fecha = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.matricula} -> {self.modelo}"

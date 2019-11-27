@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block title %}Lista de coches{% endblock %}
 {% block content %}
+<a href="/concesionario/nueva/compra">
+    <button class="btn btn-info">Agregar coche</button>
+</a>
 {% for coche in coches %}
 <img class="img-coches" src="/{{coche.imagen.url}}" width=200>
 <p>{{coche.modelo}}</p>
@@ -11,5 +14,6 @@
 <a href="#">
     <button class="btn btn-success">Comprar</button>
 </a>
+
 {% endfor %}
 {% endblock %}
