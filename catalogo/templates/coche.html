@@ -2,9 +2,13 @@
 {% block title %}Lista de coches{% endblock %}
 {% block content %}
 {% for coche in coches %}
-<p>
-    <img src="/{{coche.imagen.url}}" width=200> 
-    <a href="/{{coche.imagen.url}}"> {{ coche.modelo }}  </a>
-</p>
+<img class="img-coches" src="/{{coche.imagen.url}}" width=200>
+<p>{{coche.modelo}}</p>
+<a href="/{{coche.imagen.url}}"> 
+    <button class="btn btn-primary">Ver</button>
+</a>
+<a href="#">
+    <button class="btn btn-success">Comprar</button>
+</a>
 {% endfor %}
 {% endblock %}

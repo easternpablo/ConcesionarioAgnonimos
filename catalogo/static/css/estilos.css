@@ -2,14 +2,27 @@
 div#content {
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     flex-wrap: wrap;
-    justify-content: space-between;
+    margin-top: 10px;
+    padding-bottom: 10%;
 }
+
+div#content form.formulario_registo_cliente{
+    margin: 10px 10px 10px 10px;
+}
+
+div#content img.img-marcas{
+    width: 250px;
+    height: 150px;
+}
+
+div#content button{margin-top: 70px;}
+
 /**** PIE DE PÁGINA ****/
 footer {
     display: block;
     background-color: #343a40;
-    position: fixed;
     left: 0;
     bottom: 0;
     width:100%;
