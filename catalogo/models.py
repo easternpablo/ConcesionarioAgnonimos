@@ -48,7 +48,6 @@ class Cliente(models.Model):
     nombre = models.CharField(max_length=50)
     apellidos = models.CharField(max_length=50)
     telefono = models.CharField(max_length=9)
-    nacimiento = models.DateField()
     direccion = models.CharField(max_length=100) 
     email = models.EmailField(max_length=50) 
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
@@ -62,7 +61,6 @@ class Empleado(models.Model):
     nombre = models.CharField(max_length=50)
     apellidos = models.CharField(max_length=50)                 #son iguales, se puede usar la misma??
     telefono = models.CharField(max_length=9)
-    nacimiento = models.DateField()
     direccion = models.CharField(max_length=100) 
     email = models.EmailField(max_length=50) 
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
@@ -77,7 +75,6 @@ class Proveedor(models.Model):
     nombre = models.CharField(max_length=50)
     apellidos = models.CharField(max_length=50)
     telefono = models.CharField(max_length=9)
-    nacimiento = models.DateField()
     direccion = models.CharField(max_length=100) 
     email = models.EmailField(max_length=50) 
     

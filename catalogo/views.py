@@ -23,7 +23,7 @@ def registro_cliente(request):
     if request.POST:
         formulario = FormRegistroCliente(request.POST)
         nuevo_nombre = request.POST['nombre_usuario']       #el nombre que hemos puesto en forms
-        usuario = User.objects.filer(username=nuevo_nombre)
+        usuario = User.objects.filter(username=nuevo_nombre)
         if len(usuario)>0:
             return render(request,'registroCliente.html',{'form':formulario, 'mensaje':"Nombre de usuario existente"})
         usuario = User.objects.create_user(nuevo_nombre,"cliente@gmail.com","cliente")
@@ -35,6 +35,28 @@ def registro_cliente(request):
     else:
         formulario = FormRegistroCliente()
     return render(request, "registroCliente.html", {'form':formulario})
+
+
+def registro_empleado(request):
+    if request.user.username:
+        return redirect("/concesionario/marcas")   #donde nos va a llevar cuando esté logueado
+    if request.POST:
+        formulario = FormRegistroEmpleados(request.POST)
+        nuevo_nombre = request.POST['nombre_usuario']       #el nombre que hemos puesto en forms
+        usuario = User.objects.filter(username=nuevo_nombre)
+        if len(usuario)>0:
+            return render(request,'registroEmpleados.html',{'form':formulario, 'mensaje':"Nombre de usuario existente"})
+        usuario = User.objects.create_user(nuevo_nombre,"empleado@gmail.com","empleado")
+        usuario.save()
+        nuevo_empleado = formulario.save()
+        nuevo_empleado.usuario = usuario
+        nuevo_empleado.save()
+        return redirect("/concesionario/login")
+    else:
+        formulario = FormRegistroEmpleados()
+    return render(request, "registroEmpleados.html", {'form':formulario})
+
+
 
 def login_vista(request):
     if request.user.username:
