@@ -21,18 +21,26 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/concesionario/marcas">Catálogo</a>
                 </li>
+                {% if user.is_staff %}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Ventas</a>
+                    <a class="nav-link" href="/concesionario/listar/ventas">Ventas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Compras</a>
+                    <a class="nav-link" href="/concesionario/compras/realizadas">Compras</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Listado Clientes</a>
+                    <a class="nav-link" href="/concesionario/listar/clientes">Listado Clientes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Listado proveedores</a>
+                    <a class="nav-link" href="/concesionario/listar/proveedores">Listado proveedores</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/concesionario/listar/talleres">Listado talleres</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/concesionario/listar/reservas">Listado reservas</a>
+                </li>
+                {% endif %}
                 <li class="nav-item">
                     <a class="nav-link" href="/concesionario/logout">Cerrar sesión</a>
                 </li>

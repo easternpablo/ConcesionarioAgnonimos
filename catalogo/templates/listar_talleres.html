@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Listado de talleres{% endblock %}
+{% block content %}
+<h2>Lista Talleres</h2>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>NOMBRE</th>
+        <th>CONTACTO</th>
+        <th>TELEFONO</th>
+        <th>DIRECCIÓN</th>
+        <th>EMAIL</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for taller in talleres %}
+        <tr>
+            <td>{{taller.nombre}}</td>
+            <td>{{taller.contacto}}</td>
+            <td>{{taller.telefono}}</td>
+            <td>{{taller.direccion}}</td>
+            <td>{{taller.email}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="/concesionario/nuevo/taller"><button class="btn btn-info">Agregar Taller+</button></a>
+{% endblock %}

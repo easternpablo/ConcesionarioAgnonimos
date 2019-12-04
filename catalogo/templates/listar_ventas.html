@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Listado de ventas{% endblock %}
+{% block content %}
+<h2>Lista Ventas</h2>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>MATRICULA</th>
+        <th>MODELO</th>
+        <th>MARCA</th>
+        <th>PRECIO</th>
+        <th>CLIENTE NOMBRE</th>
+        <th>CLIENTE APELLIDOS</th>
+        <th>EMPLEADO NOMBRE</th>
+        <th>EMPLEADO APELLIDOS</th>
+        <th>FECHA VENTA</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for venta in ventas %}
+        <tr>
+            <td>{{venta.coche_id.matricula}}</td>
+            <td>{{venta.coche_id.modelo}}</td>
+            <td>{{venta.coche_id.marca_id.nombre}}</td>
+            <td>{{venta.coche_id.precio}}</td>
+            <td>{{venta.cliente_id.nombre}}</td>
+            <td>{{venta.cliente_id.apellidos}}</td>
+            <td>{{venta.empleado_id.nombre}}</td>
+            <td>{{venta.empleado_id.apellidos}}</td>
+            <td>{{venta.fecha}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

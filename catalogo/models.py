@@ -99,4 +99,12 @@ class Venta(models.Model):
     fecha = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.matricula} -> {self.modelo}"
+        return f"{self.coche_id} -> {self.cliente_id}"
+
+class Reserva(models.Model):
+    reserva_id = models.AutoField(primary_key=True)
+    coche_id = models.ForeignKey('Coche', on_delete=models.CASCADE, null=True)
+    cliente_id = models.ForeignKey('Cliente', on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return f"{self.reserva_id}: {self.cliente_id} {self.coche_id}"

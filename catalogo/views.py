@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect
-from .models import Marca, Coche
+from .models import *
 from django.contrib.auth.decorators import login_required
 from .forms import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 
-# Vista donde se listan todas las marcas
+
 @login_required(login_url="/concesionario/login")
 def lista_marcas(request):
     marcas = Marca.objects.all()
@@ -14,7 +14,7 @@ def lista_marcas(request):
 
 @login_required(login_url="/concesionario/login")
 def lista_coches(request,marca_id):
-    coches = Coche.objects.filter(marca_id__nombre = marca_id)
+    coches = Coche.objects.filter(marca_id__nombre = marca_id, vendido = False)
     return render(request,"coche.html",{"coches":coches})
 
 @login_required(login_url="/concesionario/login")
@@ -29,6 +29,32 @@ def agregar_marca(request):
     else:
         form = FormRegistroMarcas()
         return render(request, "registroMarca.html", {'form':form})
+
+@login_required(login_url="/concesionario/login")
+def agregar_proveedor(request):
+    if request.POST:
+        form = FormRegistroProveedores(request.POST, request.FILES)
+        if form.is_valid():
+            nuevo_proveedor = form.save()
+            return redirect("/concesionario/listar/proveedores")
+        else:
+            return render(request, "registroProveedor.html", {'form':form})
+    else:
+        form = FormRegistroProveedores()
+        return render(request, "registroProveedor.html", {'form':form})
+
+@login_required(login_url="/concesionario/login")
+def agregar_taller(request):
+    if request.POST:
+        form = FormRegistroTalleres(request.POST, request.FILES)
+        if form.is_valid():
+            nuevo_taller = form.save()
+            return redirect("/concesionario/listar/talleres")
+        else:
+            return render(request, "registroTaller.html", {'form':form})
+    else:
+        form = FormRegistroTalleres()
+        return render(request, "registroTaller.html", {'form':form})
 
 @login_required(login_url="/concesionario/login")
 def agregar_coche(request):
@@ -56,6 +82,65 @@ def agregar_compra(request):
         form = FormCompraCoche()
         return render(request, "registroCoche.html", {'form':form})
 
+@login_required(login_url="/concesionario/login")
+def agregar_venta(request):
+    if request.POST:
+        form = FormRegistroVenta(request.POST, request.FILES)
+        if form.is_valid():
+            venta = form.save()
+            #coche = venta.coche_id
+            #Coche.objects.filter(pk=coche).update(vendido=True)
+            #coche.coche_id.vendido = True
+            #coche.save(update_fields=["vendido"]) 
+            return redirect("/concesionario/nueva/venta")
+        else:
+            return render(request, "registroVenta.html", {'form':form})
+    else:
+        form = FormRegistroVenta()
+        return render(request, "registroVenta.html", {'form':form})
+
+@login_required(login_url="/concesionario/login")
+def agregar_reserva(request):
+    if request.POST:
+        form = FormRegistroReserva(request.POST, request.FILES)
+        if form.is_valid():
+            reserva = form.save()
+            return redirect("/concesionario/reservar/coche")
+        else:
+            return render(request, "reservarCoche.html", {'form':form})
+    else:
+        form = FormRegistroReserva()
+        return render(request, "reservarCoche.html", {'form':form})
+
+@login_required(login_url="/concesionario/login")
+def listar_clientes(request):
+    clientes = Cliente.objects.all()
+    return render(request, "listar_clientes.html",{"clientes":clientes})
+
+@login_required(login_url="/concesionario/login")
+def listar_reservas(request):
+    reservas = Reserva.objects.all()
+    return render(request, "listar_reservas.html",{"reservas":reservas})
+
+@login_required(login_url="/concesionario/login")
+def listar_ventas(request):
+    ventas = Venta.objects.all()
+    return render(request, "listar_ventas.html",{"ventas":ventas})
+
+@login_required(login_url="/concesionario/login")
+def listar_proveedores(request):
+    proveedores = Proveedor.objects.all()
+    return render(request, "listar_proveedores.html",{"proveedores":proveedores})
+
+@login_required(login_url="/concesionario/login")
+def listar_talleres(request):
+    talleres = Taller.objects.all()
+    return render(request, "listar_talleres.html",{"talleres":talleres})
+
+@login_required(login_url="/concesionario/login")
+def lista_compras(request):
+    compras = Compra.objects.all()
+    return render(request,"compras_realizadas.html",{"compras":compras})
 
 def registro_cliente(request):
     if request.user.username:

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Marca, Coche, Taller, Cliente, Empleado, Proveedor, Compra, Venta
+from .models import Marca, Coche, Taller, Cliente, Empleado, Proveedor, Compra, Venta, Reserva
 
 admin.site.register(Marca)
 admin.site.register(Coche)
@@ -9,3 +9,4 @@ admin.site.register(Empleado)
 admin.site.register(Proveedor)
 admin.site.register(Compra)
 admin.site.register(Venta)
+admin.site.register(Reserva)

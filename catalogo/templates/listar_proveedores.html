@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Listado de proveedores{% endblock %}
+{% block content %}
+<h2>Lista Proveedores</h2>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>DNI</th>
+        <th>NOMBRE</th>
+        <th>APELLIDOS</th>
+        <th>TELEFONO</th>
+        <th>DIRECCIÓN</th>
+        <th>EMAIL</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for proveedor in proveedores %}
+        <tr>
+            <td>{{proveedor.dni}}</td>
+            <td>{{proveedor.nombre}}</td>
+            <td>{{proveedor.apellidos}}</td>
+            <td>{{proveedor.telefono}}</td>
+            <td>{{proveedor.direccion}}</td>
+            <td>{{proveedor.email}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="/concesionario/nuevo/proveedor"><button class="btn btn-info">Agregar Proveedor+</button></a>
+{% endblock %}

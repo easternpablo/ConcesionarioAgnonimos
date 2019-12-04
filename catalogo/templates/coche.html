@@ -1,19 +1,24 @@
 {% extends "base.html" %}
 {% block title %}Lista de coches{% endblock %}
 {% block content %}
+
+{% if user.is_staff %}
 <a href="/concesionario/nueva/compra">
     <button class="btn btn-info">Agregar coche</button>
 </a>
-{% for coche in coches %}
-<img class="img-coches" src="/{{coche.imagen.url}}" width=200>
-<p>{{coche.modelo}}</p>
-<p>En venta</p>
-<a href="/{{coche.imagen.url}}"> 
-    <button class="btn btn-primary">Ver</button>
-</a>
-<a href="#">
-    <button class="btn btn-success">Comprar</button>
-</a>
+{% endif %}
 
+{% for coche in coches %}
+    <img class="img-coches" src="/{{coche.imagen.url}}" width=200>
+    <p style="font-weight: bold;">{{coche.modelo}}</p>
+    <a href="/{{coche.imagen.url}}"> 
+        <button class="btn btn-primary">Ver</button>
+    </a>
+    {% if not user.is_staff %}
+        <a href="/concesionario/reservar/coche">
+            <button class="btn btn-success">Reservar</button>
+        </a>
+    {% endif %}
 {% endfor %}
+
 {% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Compras realizadas{% endblock %}
+{% block content %}
+<h2>Lista Compras</h2>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>IDENTIFICADOR</th>
+            <th>MATRICULA</th>
+            <th>MODELO</th>
+            <th>PROVEEDOR</th>
+            <th>EMPLEADO</th>
+            <th>FECHA</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for compra in compras %}
+        <tr>
+            <td>{{compra.compra_id}}</td>
+            <td>{{compra.coche_id.matricula}}</td>
+            <td>{{compra.coche_id.modelo}}</td>
+            <td>{{compra.proveedor_id.nombre}}</td>
+            <td>{{compra.empleado_id.nombre}}</td>
+            <td>{{compra.fecha}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

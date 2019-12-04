@@ -18,10 +18,30 @@ class FormRegistroMarcas(forms.ModelForm):
         model = Marca
         fields = ['nombre','imagen','taller_id']
 
+class FormRegistroProveedores(forms.ModelForm):
+    class Meta:
+        model = Proveedor
+        fields = ['dni','nombre','apellidos','telefono','direccion','email']
+
+class FormRegistroTalleres(forms.ModelForm):
+    class Meta:
+        model = Taller
+        fields = ['nombre','contacto','telefono','direccion','email']
+
 class FormCompraCoche(forms.ModelForm):
     class Meta:
         model = Compra
         fields = ['coche_id','proveedor_id','empleado_id']
+
+class FormRegistroReserva(forms.ModelForm):
+    class Meta:
+        model = Reserva
+        fields = ['coche_id','cliente_id']
+
+class FormRegistroVenta(forms.ModelForm):
+    class Meta:
+        model = Venta
+        fields = ['coche_id','cliente_id','empleado_id']
 
 class FormRegistroCoches(forms.ModelForm):
     class Meta:
