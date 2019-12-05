@@ -2,15 +2,9 @@
 {% block title %}Lista de coches{% endblock %}
 {% block content %}
 
-{% if user.is_staff %}
-<a href="/concesionario/nueva/compra">
-    <button class="btn btn-info">Agregar coche</button>
-</a>
-{% endif %}
-
 {% for coche in coches %}
     <img class="img-coches" src="/{{coche.imagen.url}}" width=200>
-    <p style="font-weight: bold;">{{coche.modelo}}</p>
+    <p style="font-weight: bold;">{{coche.modelo}} | {{coche.precio}}€</p>
     <a href="/{{coche.imagen.url}}"> 
         <button class="btn btn-primary">Ver</button>
     </a>
@@ -20,5 +14,13 @@
         </a>
     {% endif %}
 {% endfor %}
+
+{% if user.is_staff %}
+<div class="contenedor-btn-agregar">
+    <a href="/concesionario/nueva/compra">
+        <button class="btn btn-info">Agregar coche+</button>
+    </a>
+</div>
+{% endif %}
 
 {% endblock %}

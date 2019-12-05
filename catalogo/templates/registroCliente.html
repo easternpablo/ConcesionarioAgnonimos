@@ -3,13 +3,15 @@
 Registro cliente - Concesionario
 {% endblock %}
 {% block content %}
-<h2>Registro nuevo cliente</h2>
-<form action="." method="POST" class="formulario_registro">
-    {{mensaje}}
-    <div class="form-group">
-        {{ form.as_p }}
-        {% csrf_token %}
-    </div>    
-    <input type="submit" class="btn btn-success" value="Guardar" class="boton_registro">
-</form>
+<div class="formulario">
+    <h2>Registro nuevo cliente</h2>
+    <form action="." method="POST">
+        {{mensaje}}
+        <div class="form-group">
+            {{ form.as_p }}
+            {% csrf_token %}
+        </div>    
+        <input type="submit" class="btn btn-success" value="Guardar" class="boton_registro">
+    </form>
+</div>
 {% endblock %}

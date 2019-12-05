@@ -88,10 +88,9 @@ def agregar_venta(request):
         form = FormRegistroVenta(request.POST, request.FILES)
         if form.is_valid():
             venta = form.save()
-            #coche = venta.coche_id
-            #Coche.objects.filter(pk=coche).update(vendido=True)
-            #coche.coche_id.vendido = True
-            #coche.save(update_fields=["vendido"]) 
+            coche = venta.coche_id
+            coche.vendido = True
+            coche.save(update_fields=["vendido"])
             return redirect("/concesionario/nueva/venta")
         else:
             return render(request, "registroVenta.html", {'form':form})

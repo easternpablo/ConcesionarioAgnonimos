@@ -2,14 +2,15 @@
 {% block title %}Lista de marcas{% endblock %}
 {% block content %}
 
+{% for marca in marcas %}
+<img class="img-marcas" src="/{{marca.imagen.url}}"/>
+<a href="{{marca.get_url_marca}}"><button class="btn btn-primary">Ver</button></a>
+{% endfor %}
+
 {% if user.is_staff %}
     <a href="/concesionario/nueva/marca">
         <button class="btn btn-info">Agregar marca+</button>
     </a>
 {% endif %}
 
-{% for marca in marcas %}
-<img class="img-marcas" src="/{{marca.imagen.url}}"/>
-<a href="{{marca.get_url_marca}}"><button class="btn btn-primary">Ver</button></a>
-{% endfor %}
 {% endblock %}

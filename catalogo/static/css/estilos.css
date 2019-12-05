@@ -8,16 +8,22 @@ div#content {
     padding-bottom: 10%;
 }
 
-div#content form.formulario_registo{
-    margin: 10px 10px 10px 10px;
+.formulario{
+    display: block;
+    text-align: center;
+    margin-left: 40%;
 }
 
-div#content img.img-marcas{
-    width: 250px;
-    height: 180px;
+.btn-info{
+    margin-left: 10px;
 }
+
+div#content form.formulario_registo{margin: 10px 10px 10px 10px;}
+
+div#content img.img-marcas{width: 250px; height: 180px;}
 
 div#content button{margin-top: 70px;}
+
 
 /**** PIE DE PÁGINA ****/
 footer {
