@@ -198,3 +198,6 @@ def login_vista(request):
 def logout_vista(request):
     logout(request)
     return redirect("/concesionario/login")
+
+def redireccion(request):
+    return redirect("/concesionario/login")
