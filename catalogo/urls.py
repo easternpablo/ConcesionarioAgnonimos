@@ -21,4 +21,8 @@ urlpatterns = [
     path("listar/reservas/", views.listar_reservas, name="Listado reservas - Concesionario"),
     path("nueva/venta/", views.agregar_venta, name="Registro venta - Concesionario"),
     path("listar/ventas/", views.listar_ventas, name="Listado ventas - Concesionario"),
+    path("editar/marca/<marca_id>/", views.editar_marca, name="Editar marca - Concesionario"),
+    path("eliminar/marca/<marca_id>/", views.eliminar_marca),
+    path("editar/coche/<coche_id>/", views.editar_coche, name="Editar coche - Concesionario"),
+    path("eliminar/coche/<coche_id>/", views.eliminar_coche),
 ]

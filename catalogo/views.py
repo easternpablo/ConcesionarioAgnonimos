@@ -31,6 +31,42 @@ def agregar_marca(request):
         return render(request, "registroMarca.html", {'form':form})
 
 @login_required(login_url="/concesionario/login")
+def editar_marca(request,marca_id):
+    marca = Marca.objects.get(nombre=marca_id)
+    formEdit = FormEditarMarcas(instance = marca)
+    if request.POST:
+        formEdit = FormEditarMarcas(request.POST, instance = marca)
+        if formEdit.is_valid:
+            marca = formEdit.save(commit=False)
+            marca.save()
+            return redirect("/concesionario/marcas")
+    return render(request, "editarMarca.html", {'form':formEdit})
+
+@login_required(login_url="/concesionario/login")
+def editar_coche(request,coche_id):
+    coche = Coche.objects.get(coche_id=coche_id)
+    formEdit = FormEditarCoches(instance = coche)
+    if request.POST:
+        formEdit = FormEditarCoches(request.POST, instance = coche)
+        if formEdit.is_valid:
+            coche = formEdit.save(commit=False)
+            coche.save()
+            return redirect("/concesionario/marcas")
+    return render(request, "editarCoche.html", {'form':formEdit})
+
+@login_required(login_url="/concesionario/login")
+def eliminar_marca(request,marca_id):
+    marca = Marca.objects.get(nombre=marca_id)
+    marca.delete()
+    return redirect("/concesionario/marcas")
+
+@login_required(login_url="/concesionario/login")
+def eliminar_coche(request,coche_id):
+    coche = Coche.objects.get(coche_id=coche_id)
+    coche.delete()
+    return redirect("/concesionario/marcas")
+
+@login_required(login_url="/concesionario/login")
 def agregar_proveedor(request):
     if request.POST:
         form = FormRegistroProveedores(request.POST, request.FILES)

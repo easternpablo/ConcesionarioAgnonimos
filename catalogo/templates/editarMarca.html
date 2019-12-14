@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block titulo %}Editar marca - Concesionario{% endblock %}
+{% block content %}
+<div class="formulario">
+    <h2>Editar marca</h2>
+    <form action="." method="POST" enctype="multipart/form-data" class="formulario_registro">
+        <div class="form-group">
+            {{ form.as_p }}
+            {% csrf_token %}
+        </div>    
+        <input type="submit" class="btn btn-success" value="Guardar" class="boton_registro">
+    </form>
+</div>
+{% endblock %}
