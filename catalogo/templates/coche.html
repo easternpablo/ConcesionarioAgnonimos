@@ -1,21 +1,27 @@
-{% extends "base.html" %} {% block title %}Lista de coches{% endblock %} {% block content %} {% for coche in coches %}
-<div class="coche">
+{% extends "base.html" %} 
+{% block title %}Lista de coches{% endblock %} 
+{% block content %} 
+{% for coche in coches %}
     <img class="img-coches" src="/{{coche.imagen.url}}" width=200>
     <p style="font-weight: bold;">{{coche.modelo}} | {{coche.precio}}€</p>
     <a href="/{{coche.imagen.url}}">
-        <button class="btn btn-primary">Ver</button> {% if user.is_staff %}
-        <a href="/concesionario/editar/coche/{{coche.coche_id}}"><button class="btn btn-warning">Editar</button></a>
-        <a href="/concesionario/eliminar/coche/{{coche.coche_id}}"><button class="btn btn-danger">Eliminar</button></a> {% endif %}
+        <button class="btn btn-primary">Ver</button> 
+        {% if user.is_staff %}
+            <a href="/concesionario/editar/coche/{{coche.coche_id}}"><button class="btn btn-warning">Editar</button></a>
+            <a href="/concesionario/eliminar/coche/{{coche.coche_id}}"><button class="btn btn-danger">Eliminar</button></a> 
+        {% endif %}
     </a>
     {% if not user.is_staff %}
-    <a href="/concesionario/reservar/coche">
-        <button class="btn btn-success">Reservar</button>
-    </a>
-    {% endif %} {% endfor %} {% if user.is_staff %}
+        <a href="/concesionario/reservar/coche">
+            <button class="btn btn-success">Reservar</button>
+        </a>
+    {% endif %} 
+{% endfor %} 
+{% if user.is_staff %}
     <div class="contenedor-btn-agregar">
         <a href="/concesionario/nueva/compra">
             <button class="btn btn-info">Agregar coche+</button>
         </a>
     </div>
-</div>
-{% endif %} {% endblock %}
+{% endif %}
+{% endblock %}

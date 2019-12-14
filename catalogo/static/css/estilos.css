@@ -19,13 +19,6 @@ div#content {
     height: 180px;
 }
 
-.coche {
-    display: flex;
-    width: 35%;
-    flex-wrap: wrap;
-    margin-bottom: 1%;
-}
-
 .btn-info {
     margin-left: 10px;
 }
