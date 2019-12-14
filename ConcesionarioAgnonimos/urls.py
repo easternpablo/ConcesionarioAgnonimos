@@ -20,6 +20,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include("catalogo.urls")),
     path('concesionario/', include("catalogo.urls")),
 ] + static("/imagenes/Marcas/", document_root=settings.BASE_DIR+"/imagenes/Marcas/") \
   + static("/imagenes/Coches/", document_root=settings.BASE_DIR+"/imagenes/Coches/") \

@@ -25,4 +25,5 @@ urlpatterns = [
     path("eliminar/marca/<marca_id>/", views.eliminar_marca),
     path("editar/coche/<coche_id>/", views.editar_coche, name="Editar coche - Concesionario"),
     path("eliminar/coche/<coche_id>/", views.eliminar_coche),
+    path("", views.redireccion, name="Redirecion"),
 ]
