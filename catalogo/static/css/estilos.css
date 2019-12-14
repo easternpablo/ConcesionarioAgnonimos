@@ -1,4 +1,5 @@
 /**** CUERPO  ****/
+
 div#content {
     display: flex;
     flex-direction: row;
@@ -8,30 +9,50 @@ div#content {
     padding-bottom: 10%;
 }
 
-.formulario{
+.formulario {
     display: block;
     text-align: center;
     margin-left: 40%;
 }
 
-.btn-info{
+.img-coches {
+    width: 50%;
+    height: 180px;
+}
+
+.coche {
+    display: flex;
+    width: 35%;
+    flex-wrap: wrap;
+    margin-bottom: 1%;
+}
+
+.btn-info {
     margin-left: 10px;
 }
 
-div#content form.formulario_registo{margin: 10px 10px 10px 10px;}
+div#content form.formulario_registo {
+    margin: 10px 10px 10px 10px;
+}
 
-div#content img.img-marcas{width: 250px; height: 180px;}
+div#content img.img-marcas {
+    width: 250px;
+    height: 180px;
+}
 
-div#content button{margin-top: 70px;}
+div#content button {
+    margin-top: 70px;
+}
 
 
 /**** PIE DE PÁGINA ****/
+
 footer {
     display: block;
     background-color: #343a40;
     left: 0;
     bottom: 0;
-    width:100%;
+    width: 100%;
 }
 
 footer p {
@@ -39,7 +60,10 @@ footer p {
     font: bold;
     padding: 10px 10px 10px 10px;
 }
+
+
 /**** BARRA SOCIAL ****/
+
 div.redes-sociales {
     display: flex;
     flex-direction: row;
